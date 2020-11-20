@@ -1,44 +1,9 @@
-# def bubbleSort(data):
-#     for i in range(len(data)-1):
-#         for j in range(len(data)-i-1):
-#             if data[j] > data[j+1]:
-#                 data[j],data[j+1] = data[j+1],data[j]
+def bubbleSort(data):
+    for i in range(len(data)-1):
+        for j in range(len(data)-i-1):
+            if data[j] > data[j+1]:
+                data[j],data[j+1] = data[j+1],data[j]
 
-# def insertSort(data):
-#     lis = []
-#     for i in range(len(data)):
-#         lis.append(data[i])
-#         if len(lis) > 1 :
-#             for j in range(len(lis)-1):
-#                 if data[i] < data[j] :
-#                     print('{} insert front {}'.format(data[i],data[j]))
-#                     data.insert(j,data.pop(data.index(data[i])))
-#                     print(data)
-
-# def findResultOf(results,data):
-#     listOfSum = []
-#     for i in range(len(data)):
-#         pass
-
-
-# results,data = input('Enter Input : ').split('/')
-# integerData = list(map(int, data.split()))
-# # findResultOf(int(results),integerData)
-# insertSort(integerData)
-# print(integerData)
-
-def boubleSort(sequence):
-    for i in range(len(sequence)-1):
-        swaped = False
-
-        for j in range(len(sequence)-1-i):
-            if sequence[j] > sequence[j+1]:
-                swaped = True
-                sequence[j], sequence[j+1] = sequence[j+1], sequence[j]
-
-        if not swaped:
-            break
-    return sequence
 
 def getPatternStorage(sequence, summation, curr_summation=0, index=0, pattern=None, pattern_storage=None):
     if pattern is None:
@@ -52,13 +17,10 @@ def getPatternStorage(sequence, summation, curr_summation=0, index=0, pattern=No
 
     if index == len(sequence):
         return pattern_storage
-    print('{} {} {} {} {} {}'.format(sequence, summation, curr_summation + sequence[index], index+1, pattern, pattern_storage))
-    print() 
     pattern.append(sequence[index])
     getPatternStorage(sequence, summation, curr_summation + sequence[index], index+1, pattern, pattern_storage)
-    print('{} {} {} {} {} {}'.format(sequence, summation, curr_summation + sequence[index], index+1, pattern, pattern_storage))
 
-    print(pattern.pop())
+    pattern.pop()
     getPatternStorage(sequence, summation, curr_summation, index+1, pattern, pattern_storage)
 
     return pattern_storage
@@ -80,7 +42,7 @@ summation, inputList = input('Enter Input : ').split('/')
 summation = int(summation)
 inputList = list(map(int, inputList.split()))
 
-boubleSort(inputList)
+bubbleSort(inputList)
 patternStorage = getPatternStorage(inputList, summation)
 sortPatterStorage(patternStorage)
 if len(patternStorage) == 0:
