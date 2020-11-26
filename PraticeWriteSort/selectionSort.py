@@ -1,14 +1,13 @@
 def selectionSort(data,n):
-    if len(data) == 1 :
+    if n == 0 :
         return data
     else :
         maxValues = max(data[:n+1])
         print('{} equal {}'.format(data[data.index(maxValues)],data[n]))
         data[data.index(maxValues)] = data[n]
-        data[lenght] = maxValues
+        data[n] = maxValues
     selectionSort(data,n-1)
 
-data = list(map(int,input('Enter Input : ').split(' ')))
-selectionSort(data,len(data)-1)
-print(data)
-        
+Data = [int(i) for i in input('Enter Input : ').split()]
+selectionSort(Data,len(Data)-1)
+print(Data)
